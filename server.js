@@ -30,7 +30,9 @@ app.get('/api/indices', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch index data' });
   }
 });
-
+app.get('/', (req, res) => {
+  res.send('✅ Sensex & Nifty API is running. Use /api/indices');
+});
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
