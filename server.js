@@ -8,7 +8,14 @@ app.use(cors());
 
 app.get('/api/indices', async (req, res) => {
   try {
-    const { data } = await axios.get('https://priceapi.moneycontrol.com/techCharts/indianMarket/indexData?indices=5,9');
+    const { data } = await axios.get(
+  'https://priceapi.moneycontrol.com/techCharts/indianMarket/indexData?indices=5,9',
+  {
+    headers: {
+      'User-Agent': 'Mozilla/5.0'
+    }
+  }
+);
 
     const sensex = data['5'];
     const nifty = data['9'];
